@@ -1,7 +1,13 @@
 <template>
   <div class="Displayer">
     <h3>{{headline}}</h3>
-    <Button @click="getUsers" buttonText="SOME TEXT"/>
+    <Button @click="getUsers" buttonText="Load users"/>
+    <div v-if="-1 > 0">
+      <p>Loading Users...</p>
+    </div>
+    <div v-else>
+      <p>No users are currently loaded</p>
+    </div>
   </div>
 </template>
 
@@ -16,13 +22,25 @@ export default {
   components: {
     Button,
   },
+    data() {
+    return {
+      users: [],
+    }
+  },
   methods: {
     getUsers() {
       fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
-      .then(json => console.log(json))
+      .then(json => {
+        for (let i = 0; i < json.length; i++) {
+          console.log(json[i].name);
+        }
+      })
+    },
+    updateUsers() {
+      //
     }
-  }
+  },
 }
 </script>
 
