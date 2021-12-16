@@ -1,21 +1,22 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <ContentDisplayer headline="Maria"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ContentDisplayer from './components/ContentDisplayer.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ContentDisplayer
   }
 }
 </script>
 
 <style>
-#app {
+#app ,
+    ContentDisplayer{
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
